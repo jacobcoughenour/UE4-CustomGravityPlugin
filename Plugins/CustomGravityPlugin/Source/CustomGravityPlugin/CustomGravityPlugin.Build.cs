@@ -1,16 +1,18 @@
 // Copyright 2015 Elhoussine Mehnik (Mhousse1247). All Rights Reserved.
 //******************* http://ue4resources.com/ *********************//
 
+using System.IO;
 using UnrealBuildTool;
 
 public class CustomGravityPlugin : ModuleRules
 {
 	public CustomGravityPlugin(ReadOnlyTargetRules Target) : base(Target)
     {
+		PrivatePCHHeaderFile = "CustomGravityPlugin/Private/CustomGravityPluginPrivatePCH.h";
 		
 		PublicIncludePaths.AddRange(
 			new string[] {
-				"CustomGravityPlugin/Public"
+				Path.Combine(ModuleDirectory, "Public")
 				
 				// ... add public include paths required here ...
 			}
@@ -19,7 +21,7 @@ public class CustomGravityPlugin : ModuleRules
 		
 		PrivateIncludePaths.AddRange(
 			new string[] {
-				"CustomGravityPlugin/Private",
+				Path.Combine(ModuleDirectory, "Private")
 				
 				// ... add other private include paths required here ...
 			}
